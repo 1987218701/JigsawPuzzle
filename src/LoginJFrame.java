@@ -23,7 +23,9 @@ public class LoginJFrame extends JFrame implements ActionListener {
     JPasswordField pwdInput;// 密码
     JTextField codeInput;// 验证码
     JLabel correctCode; // 生成的验证码
-    String eyePath; // 小眼睛路径
+    String eyePath = "pic\\openEyes.png"; // 小眼睛路径
+
+    boolean isShowPwd = false;
 
     int x = 90, y = 130;
 
@@ -35,7 +37,6 @@ public class LoginJFrame extends JFrame implements ActionListener {
     }
 
     private void initLoginImage() {
-        this.getContentPane().removeAll();
         // 添加用户名
         JLabel username = new JLabel("用户名");
         username.setBounds(x, y, 60, 20);
@@ -55,48 +56,16 @@ public class LoginJFrame extends JFrame implements ActionListener {
         password.setFont(font);
         this.getContentPane().add(password);
         // 密码输入框
+        eyePath = "pic\\openEyes.png";
         pwdInput = new JPasswordField();
         pwdInput.setBounds(x + 80, y + 50, 200, 30);
         usernameInput.setHorizontalAlignment(JTextField.LEFT);//设置水平居中模式
         pwdInput.setFont(inputFont);
         this.getContentPane().add(pwdInput);
         //小眼睛
-        eyePath = "pic\\openEyes.png";
         JLabel eyes = new JLabel(new ImageIcon(eyePath));
         eyes.setBounds(x + 282, y + 55, 28, 20);
         this.getContentPane().add(eyes);
-        eyes.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                char[] pwdArr = pwdInput.getPassword();
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < pwdArr.length; i++) {
-                    sb.append(pwdArr[i]);
-                }
-                String password = sb.toString();
-                System.out.println(password);
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
         // 验证码
         JLabel code = new JLabel("验证码");
         code.setBounds(x, y + 100, 60, 20);
@@ -126,6 +95,7 @@ public class LoginJFrame extends JFrame implements ActionListener {
 
             @Override
             public void mouseReleased(MouseEvent e) {
+                // 生成新的验证码
                 correctCode.setText(GameUtil.createCode());
             }
 
@@ -153,8 +123,6 @@ public class LoginJFrame extends JFrame implements ActionListener {
         JLabel bcg = new JLabel(new ImageIcon("pic\\loginBCG.png"));
         bcg.setBounds(0, 0, 472, 401);
         this.getContentPane().add(bcg);
-
-        this.getContentPane().repaint();
     }
 
     private void initLoginJFrame() {
