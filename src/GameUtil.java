@@ -1,5 +1,3 @@
-package JigsawPuzzle;
-
 import java.util.Random;
 
 public class GameUtil {
