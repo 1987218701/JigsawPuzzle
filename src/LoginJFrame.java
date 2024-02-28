@@ -25,8 +25,6 @@ public class LoginJFrame extends JFrame implements ActionListener {
     JLabel correctCode; // 生成的验证码
     String eyePath = "pic\\openEyes.png"; // 小眼睛路径
 
-    boolean isShowPwd = false;
-
     int x = 90, y = 130;
 
     public LoginJFrame() {
