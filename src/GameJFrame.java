@@ -12,9 +12,8 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
     String path = "pic\\animal\\animal1\\";
     int stepNumber = 0;
     int animalCount = 4;// 动物图片数量
-    int girlCount = 0;// 美女图片数量
+    int girlCount = 4;// 美女图片数量
     int sceneryCount = 0;// 风景图片数量
-
     JMenu functionJMenu = new JMenu("功能选项");
     JMenu aboutJMenu = new JMenu("关于我们");
     JMenu changePicture = new JMenu("更换图片");
